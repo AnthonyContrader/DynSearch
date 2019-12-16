@@ -1,2 +1,2 @@
-# DynSearch
-Dynamic Search
+# SAMPLE
+Sample Projects
