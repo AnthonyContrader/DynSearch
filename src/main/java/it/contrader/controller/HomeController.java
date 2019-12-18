@@ -1,6 +1,7 @@
 package it.contrader.controller;
 
 import it.contrader.main.MainDispatcher;
+import it.contrader.model.User;
 import it.contrader.service.LoginService;
 
 public class HomeController implements Controller {
@@ -30,10 +31,12 @@ public class HomeController implements Controller {
 			switch(usertype) {
 			
 			case "ADMIN":
+				User.setAdmin(true);
 				MainDispatcher.getInstance().callView("HomeAdmin", request);
 				break;
 				
-			case "USER": 
+			case "USER":
+				User.setAdmin(false);
 				MainDispatcher.getInstance().callView("HomeUser", request);
 				break;
 			

@@ -8,13 +8,11 @@ public class User {
 	 * Qui sotto definisco gli attributi di User. 
 	 */
 	private int id;
-
 	private String username;
-	
 	private String password;
-	
 	private String usertype;
-
+	private static boolean isAdmin;
+	
 	/**
 	 * Definisco i due costruttori, uno vuoto e uno con tre parametri per costrire oggetti di tipo User
 	 */
@@ -26,6 +24,12 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.usertype = usertype;
+		if (this.usertype=="admin" || this.usertype=="ADMIN") {
+			User.isAdmin = true;
+		}
+		else {
+			User.isAdmin = false;
+		}
 	}
 
 	public User (int id, String username, String password, String usertype) {
@@ -33,6 +37,20 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.usertype = usertype;
+		if (this.usertype=="admin" || this.usertype=="ADMIN") {
+			User.isAdmin = true;
+		}
+		else {
+			User.isAdmin = false;
+		}
+	}
+
+	public static boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public static void setAdmin(boolean isAdmin) {
+		User.isAdmin = isAdmin;
 	}
 
 	/**
