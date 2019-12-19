@@ -64,8 +64,7 @@ public class UserDAO {
 	public User read(int userId) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-
-
+			
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setInt(1, userId);
 			ResultSet resultSet = preparedStatement.executeQuery();

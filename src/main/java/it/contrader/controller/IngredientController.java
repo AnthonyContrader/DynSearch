@@ -21,7 +21,7 @@ public class IngredientController implements Controller{
 		String mode = (String) request.get("mode");
 		
 		String choice = (String) request.get("choice");
-
+		boolean isAdmin = User.isAdmin();
 		int id;
 		String category;
 		String name;
@@ -119,7 +119,11 @@ public class IngredientController implements Controller{
 				break;
 
 			case "B":
-				MainDispatcher.getInstance().callView("HomeAdmin", null);
+				if(User.isAdmin()) {
+					MainDispatcher.getInstance().callView("HomeAdmin", null);
+				}else {
+					MainDispatcher.getInstance().callView("HomeUser", null);
+				}
 				break;
 				
 			default:
@@ -127,6 +131,11 @@ public class IngredientController implements Controller{
 			}
 		default:
 			MainDispatcher.getInstance().callView("Login", null);
+		}
+		if(isAdmin) {
+			User.setAdmin(true);
+		}else {
+			User.setAdmin(false);
 		}
 	}
 }

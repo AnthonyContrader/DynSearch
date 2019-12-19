@@ -26,6 +26,7 @@ public class MainDispatcher {
 	 * per ulteriori rimandi vedere la classe Connection Singleton o la guida SEZIONE 10	
 	 */
 	public static MainDispatcher getInstance() {
+		
 		if (instance == null) {
 			instance = new MainDispatcher();
 		}
@@ -72,6 +73,7 @@ public class MainDispatcher {
  * 						request, poi showOption ed infine submit()
 	 */
 	public void callView(String view, Request request) {
+		
 		View oggettoView = (View) ReflectionUtils.instantiateClass("it.contrader.view." + view + "View");
 		oggettoView.showResults(request);
 		oggettoView.showOptions();

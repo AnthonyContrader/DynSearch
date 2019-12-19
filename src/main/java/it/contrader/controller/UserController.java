@@ -43,7 +43,7 @@ public class UserController implements Controller {
 		
 		//Estrae dalla request mode e choice
 		String mode = (String) request.get("mode");
-		
+		boolean isAdmin = User.isAdmin();
 		String choice = (String) request.get("choice");
 
 		//Definisce i campi della classe (serviranno sempre, tanto vale definirli una sola volta)
@@ -51,7 +51,6 @@ public class UserController implements Controller {
 		String username;
 		String password;
 		String usertype;
-		User.setAdmin(true);
 		switch (mode) {
 		
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
@@ -147,6 +146,11 @@ public class UserController implements Controller {
 			
 		default:
 			MainDispatcher.getInstance().callView("Login", null);
+		}
+		if(isAdmin) {
+			User.setAdmin(true);
+		}else {
+			User.setAdmin(false);
 		}
 	}
 }
