@@ -4,6 +4,7 @@ import java.util.List;
 
 import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
+import it.contrader.model.User;
 import it.contrader.service.UserService;
 
 /**
@@ -50,7 +51,7 @@ public class UserController implements Controller {
 		String username;
 		String password;
 		String usertype;
-
+		User.setAdmin(true);
 		switch (mode) {
 		
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 

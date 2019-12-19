@@ -1,5 +1,6 @@
 package it.contrader.dto;
 
+
 /**
  * 
  * @author Vittorio

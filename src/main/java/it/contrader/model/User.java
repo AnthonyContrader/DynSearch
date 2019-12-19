@@ -25,10 +25,10 @@ public class User {
 		this.password = password;
 		this.usertype = usertype;
 		if (this.usertype=="admin" || this.usertype=="ADMIN") {
-			User.isAdmin = true;
+			User.setAdmin(true);
 		}
 		else {
-			User.isAdmin = false;
+			User.setAdmin(false);
 		}
 	}
 
@@ -37,16 +37,11 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.usertype = usertype;
-		if (this.usertype=="admin" || this.usertype=="ADMIN") {
-			User.isAdmin = true;
-		}
-		else {
-			User.isAdmin = false;
-		}
+		
 	}
 
 	public static boolean isAdmin() {
-		return isAdmin;
+		return User.isAdmin;
 	}
 
 	public static void setAdmin(boolean isAdmin) {
