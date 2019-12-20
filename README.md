@@ -1,2 +1,1 @@
-# DynSearch
-Dynamic Search
+# DORSE
