@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import it.contrader.dto.CarDTO;
-import it.contrader.dto.IngredientDTO;
 import it.contrader.service.Service;
 import it.contrader.service.CarService;
 
