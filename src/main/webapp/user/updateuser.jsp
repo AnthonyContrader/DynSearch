@@ -10,11 +10,12 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a  href="homeadmin.jsp">Home</a>
-  <a  href="UserServlet?mode=userlist">Users</a>
-  <a class="active" href="IngredientServlet?mode=ingredientlist">Ingredients</a>
-  <a href="CarServlet?mode=carlist">Cars</a>
-  <a href="LogoutServlet" id="logout">Logout</a>
+  	<a href="homeadmin.jsp">Home</a>
+	<a class="active" href="UserServlet?mode=userlist">Users</a>
+	<a href="IngredientServlet?mode=ingredientlist">Ingredients</a>
+	<a href="CarServlet?mode=carlist">Cars</a>
+	<a href="DishServlet?mode=dishlist">Dishes</a>
+	<a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
 <div class="main">

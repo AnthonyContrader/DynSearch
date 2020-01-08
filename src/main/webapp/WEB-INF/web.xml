@@ -52,4 +52,14 @@
     <servlet-name>CarServlet</servlet-name>
     <url-pattern>/CarServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DishServlet</display-name>
+    <servlet-name>DishServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.DishServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DishServlet</servlet-name>
+    <url-pattern>/DishServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
