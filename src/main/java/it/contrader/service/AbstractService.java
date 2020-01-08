@@ -31,7 +31,6 @@ public abstract class AbstractService<Entity,DTO> implements Service<DTO> {
 		// Ottiene un'entità e la restituisce convertendola in DTO
 		return converter.toDTO(dao.read(id));
 	}
-
 	@Override
 	public boolean insert(DTO dto) {
 		// Converte un DTO in entità e lo passa al DAO per l'inserimento
