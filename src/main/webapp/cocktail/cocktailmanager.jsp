@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Ingredient Manager</title>
+<title>Cocktail Manager</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
