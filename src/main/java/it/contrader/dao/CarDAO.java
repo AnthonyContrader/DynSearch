@@ -83,7 +83,7 @@ public class CarDAO implements DAO<Car> {
 			brand = resultSet.getString("brand");
 			model = resultSet.getString("model");
 			doors = resultSet.getInt("doors");
-			engineCapacity = resultSet.getInt("enginecapacity");
+			engineCapacity = resultSet.getFloat("enginecapacity");
 			Car car = new Car(brand, model, doors, engineCapacity);
 			
 			car.setId(resultSet.getInt("id"));
@@ -95,6 +95,7 @@ public class CarDAO implements DAO<Car> {
 
 	}
 
+	//FINO QUI OK
 	public boolean update(Car carToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
 
@@ -114,6 +115,7 @@ public class CarDAO implements DAO<Car> {
 					carToUpdate.setModel(carRead.getModel());
 				}
 
+				
 				if (carToUpdate.getDoors() == 0) {
 					carToUpdate.setDoors(carRead.getDoors());
 				}
@@ -121,7 +123,7 @@ public class CarDAO implements DAO<Car> {
 					carToUpdate.setEngineCapacity(carRead.getEngineCapacity());
 				}
 				
-				// Update the ingredient
+				
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, carToUpdate.getBrand());
 				preparedStatement.setString(2, carToUpdate.getModel());

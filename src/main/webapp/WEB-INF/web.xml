@@ -32,4 +32,24 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>IngredientServlet</display-name>
+    <servlet-name>IngredientServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.IngredientServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IngredientServlet</servlet-name>
+    <url-pattern>/IngredientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CarServlet</display-name>
+    <servlet-name>CarServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.CarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarServlet</servlet-name>
+    <url-pattern>/CarServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

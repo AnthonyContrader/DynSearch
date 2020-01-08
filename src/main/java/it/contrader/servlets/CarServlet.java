@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import it.contrader.dto.CarDTO;
+import it.contrader.dto.IngredientDTO;
 import it.contrader.service.Service;
 import it.contrader.service.CarService;
 
@@ -60,8 +61,7 @@ public class CarServlet extends HttpServlet {
 		case "INSERT":
 			String brand = request.getParameter("brand").toString();
 			String model = request.getParameter("model").toString();
-			
-			//Potresti aver sbagliato qui 
+					
 			int doors = Integer.parseInt(request.getParameter("doors").toString());
 			float engineCapacity = Float.parseFloat(request.getParameter("engineCapacity").toString());
 			
@@ -70,21 +70,34 @@ public class CarServlet extends HttpServlet {
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
-			getServletContext().getRequestDispatcher("/car/usermanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/car/carmanager.jsp").forward(request, response);
 			break;
 			
 			
 		case "UPDATE":
 			brand = request.getParameter("brand");
 			model = request.getParameter("model");
-			//potresti aver sbagliato qui			
-			doors = Integer.parseInt(request.getParameter("doors"));
-			engineCapacity =Float.parseFloat(request.getParameter("engineCapacity"));
 			
 			id = Integer.parseInt(request.getParameter("id"));
+			
+			CarDTO cont = service.read(id);
+			try {
+					doors = Integer.parseInt(request.getParameter("doors").toString());
+			}catch(Exception e) {
+				doors= cont.getDoors();
+			}
+			try {
+					engineCapacity = Float.parseFloat(request.getParameter("engineCapacity").toString());
+			}catch(Exception e) {
+				engineCapacity= cont.getEngineCapacity();
+			}
+						
+			//doors = Integer.parseInt(request.getParameter("doors"));
+			//engineCapacity =Float.parseFloat(request.getParameter("engineCapacity"));
+			
+		
 			dto = new CarDTO (id,brand, model, doors, engineCapacity);
 			
-			//fino qui
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/car/carmanager.jsp").forward(request, response);

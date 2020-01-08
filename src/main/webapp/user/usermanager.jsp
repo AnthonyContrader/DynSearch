@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>User Manager</title>
+<title>DYNsearch-User Manager</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
@@ -14,12 +14,13 @@
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
   <a class="active" href="UserServlet?mode=userlist">Users</a>
-  <a  href="CarServlet?mode=carlist">Cars</a>
+   <a  href="IngredientServlet?mode=ingredientlist">Ingredients</a>
+    <a  href="CarServlet?mode=carlist">Cars</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
 	<%
-		List<UserDTO> list = (List<UserDTO>) request.getAttribute("list");
+	@SuppressWarnings("unchecked") List<UserDTO> list = (List<UserDTO>) request.getAttribute("list");
 	%>
 
 <br>
