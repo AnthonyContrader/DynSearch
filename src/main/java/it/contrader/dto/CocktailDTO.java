@@ -6,7 +6,16 @@ public class CocktailDTO {
 	private boolean isAlcohol;
 	private int AVG;
 	private int id;
+	private String alcohol;
 	
+	public String getAlcohol() {
+		return alcohol;
+	}
+
+	public void setAlcohol(String alcohol) {
+		this.alcohol = alcohol;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -21,6 +30,7 @@ public class CocktailDTO {
 		this.setIsAlcohol(isAlcohol);
 		this.setAVG(AVG);
 		this.setId(id);
+		this.alcohol = isAlcohol  ? "Alcohol" : "NO Alcohol";
 	}
 	
 	public CocktailDTO(String name, String type, boolean isAlcohol, int AVG) {
@@ -28,6 +38,7 @@ public class CocktailDTO {
 		this.setType(type);
 		this.setIsAlcohol(isAlcohol);
 		this.setAVG(AVG);
+		this.alcohol = isAlcohol  ? "Alcohol" : "NO Alcohol";
 	}
 
 	public String getName() {
@@ -64,8 +75,6 @@ public class CocktailDTO {
 	
 	@Override
 	public String toString() {
-		String alcohol;
-		alcohol = isAlcohol  ? "Alcohol" : "NO Alcohol";
 		return   name +"\t\t" +   type + "\t\t" + alcohol + "\t\t"  +   AVG ;
 	}
 

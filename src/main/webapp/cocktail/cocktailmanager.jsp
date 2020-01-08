@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.IngredientDTO"%>
+	import="it.contrader.dto.CocktailDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,43 +15,39 @@
   <a  href="homeadmin.jsp">Home</a>
   <a  href="UserServlet?mode=userlist">Users</a>
   <a class="active" href="IngredientServlet?mode=ingredientlist">Ingredients</a>
+  <a  href="CarServlet?mode=carlist">Cars</a>
+  <a  href="CocktailServlet?mode=cocktaillist">Cocktails</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
 	<%
-	@SuppressWarnings("unchecked") List<IngredientDTO> list = (List<IngredientDTO>) request.getAttribute("list");
+	@SuppressWarnings("unchecked") List<CocktailDTO> list = (List<CocktailDTO>) request.getAttribute("list");
 	%>
 
 <br>
 
 	<table>
 		<tr>
-			<th>Category</th>
 			<th>Name</th>
-			<th>Weight</th>
-			<th>Calories</th>
-			<th>Carbohydrates</th>
-			<th>Proteins</th>
-			<th>Fat</th>
+			<th>Type</th>
+			<th>Alcohol</th>
+			<th>AVG</th>
 			<th></th>
 			<th></th>
 		</tr>
 		<%
-			for (IngredientDTO i : list) {
+			for (CocktailDTO c : list) {
 		%>
 		<tr>
-			<td><a href=IngredientServlet?mode=read&id=<%=i.getId()%>>
-					<%=i.getCategory()%>
+			<td><a href=CocktailServlet?mode=read&id=<%=c.getId()%>>
+					<%=c.getName()%>
 			</a></td>
-			<td><%=i.getName()%></td>
-			<td><%=i.getWeight()%></td>
-			<td><%=i.getCal()%></td>
-			<td><%=i.getCarb()%></td>
-			<td><%=i.getProt()%></td>
-			<td><%=i.getFat()%></td>
-			<td><a href=IngredientServlet?mode=read&update=true&id=<%=i.getId()%>>Edit</a>
+			<td><%=c.getType()%></td>
+			<td><%=c.getAlcohol()%></td>
+			<td><%=c.getAVG()%></td>
+			<td><a href=CocktailServlet?mode=read&update=true&id=<%=c.getId()%>>Edit</a>
 			</td>
-			<td><a href=IngredientServlet?mode=delete&id=<%=i.getId()%>>Delete</a>
+			<td><a href=CocktailServlet?mode=delete&id=<%=c.getId()%>>Delete</a>
 			</td>
 
 		</tr>
@@ -62,61 +58,39 @@
 
 
 
-<form id="floatright" action="IngredientServlet?mode=insert" method="post">
+<form id="floatright" action="CocktailServlet?mode=insert" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="category">Category</label>
+      <label for="category">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="category" name="category" placeholder="Insert Category ">
+      <input type="text" id="name" name="name" placeholder="Insert Name ">
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="name">Name</label>
+     <label for="type">Type</label>
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="name" placeholder="Insert Name "> 
+      <input type="text" id="type" name="type" placeholder="Insert Type "> 
     </div>
   </div>
 <div class="row">
     <div class="col-25">
-     <label for="weight">Weight</label>
+    <input type="radio" id="alcohol" name="alcohol">
+     <label for="alcohol">Alcohol</label>
     </div>
     <div class="col-75">
-      <input type="text" id="weight" name="weight" placeholder="Insert Weight "> 
+      <input type="radio" id="noalcohol" name="alcohol">
+      <label for="noalcohol">NO Alcohol</label>
     </div>
   </div>
    <div class="row">
     <div class="col-25">
-     <label for="cal">Calories</label>
+     <label for="cal">AVG</label>
     </div>
     <div class="col-75">
-      <input type="text" id="cal" name="cal" placeholder="Insert Calories "> 
-    </div>
-  </div>
-   <div class="row">
-    <div class="col-25">
-     <label for="carb">Carbohydrates</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="carb" name="carb" placeholder="Insert Carbohydrates "> 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-     <label for="prot">Proteins</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="prot" name="prot" placeholder="Insert Proteins "> 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-     <label for="fat">Fat</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="fat" name="fat" placeholder="Insert Fat "> 
+      <input type="text" id="avg" name="avg" placeholder="Insert AVG "> 
     </div>
   </div>
       <button type="submit" >Insert</button>
