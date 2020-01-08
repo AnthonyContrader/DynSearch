@@ -135,7 +135,6 @@ public class CarDAO implements DAO<Car> {
 					return true;
 				else
 					return false;
-
 			} catch (SQLException e) {
 				return false;
 			}
