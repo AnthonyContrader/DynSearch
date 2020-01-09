@@ -4,17 +4,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="../css/vittoriostyle.css" rel="stylesheet">
+<link href="./css/vittoriostyle.css" rel="stylesheet">
 <title>Read User</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  	<a href="homeadmin.jsp">Home</a>
+	<a href="homeadmin.jsp">Home</a>
 	<a class="active" href="UserServlet?mode=userlist">Users</a>
 	<a href="IngredientServlet?mode=ingredientlist">Ingredients</a>
 	<a href="CarServlet?mode=carlist">Cars</a>
 	<a href="DishServlet?mode=dishlist">Dishes</a>
+	<a href="CocktailServlet?mode=cocktaillist">Cocktails</a>
 	<a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>

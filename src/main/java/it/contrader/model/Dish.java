@@ -94,6 +94,40 @@ public Dish(int id, String name, float cal, float carb, float fat, float prot, S
 		return category;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Dish other = (Dish) obj;
+		if (Float.floatToIntBits(cal) != Float.floatToIntBits(other.cal))
+			return false;
+		if (Float.floatToIntBits(carb) != Float.floatToIntBits(other.carb))
+			return false;
+		if (category == null) {
+			if (other.category != null)
+				return false;
+		} else if (!category.equals(other.category))
+			return false;
+		if (Float.floatToIntBits(fat) != Float.floatToIntBits(other.fat))
+			return false;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (Float.floatToIntBits(prot) != Float.floatToIntBits(other.prot))
+			return false;
+		if (Float.floatToIntBits(weight) != Float.floatToIntBits(other.weight))
+			return false;
+		return true;
+	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
@@ -120,101 +154,7 @@ public Dish(int id, String name, float cal, float carb, float fat, float prot, S
 	}
 	
 	//Metodo per il confronto degli oggetti
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Dish other = (Dish) obj;
-		if (id != other.id)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
 		
-		if (cal == 0.0f) {
-			if (other.cal != 0.0f)
-				return false;
-		} else if (cal != (other.cal))
-			return false;
-		if (name == null) {
-			if (other.cal != 0.0f)
-				return false;
-		} else if (cal != (other.cal))
-			return false;
-		
-		if (carb == 0.0f) {
-			if (other.carb != 0.0f)
-				return false;
-		} else if (carb != (other.carb))
-			return false;
-		if (name == null) {
-			if (other.carb != 0.0f)
-				return false;
-		} else if (carb != (other.carb))
-			return false;
-		
-		if (fat == 0.0f) {
-			if (other.fat != 0.0f)
-				return false;
-		} else if (fat != (other.fat))
-			return false;
-		if (name == null) {
-			if (other.fat != 0.0f)
-				return false;
-		} else if (fat != (other.fat))
-			return false;
-		
-		
-		if (prot == 0.0f) {
-			if (other.prot != 0.0f)
-				return false;
-		} else if (prot != (other.prot))
-			return false;
-		if (name == null) {
-			if (other.prot != 0.0f)
-				return false;
-		} else if (prot != (other.prot))
-			return false;
-		
-		
-		
-		if (category == null) {
-			if (other.category != null)
-				return false;
-		} else if (!category.equals(other.category))
-			return false;
-		if (category == null) {
-			if (other.category != null)
-				return false;
-		} else if (!category.equals(other.category))
-			return false;
-		
-		
-		
-		if (weight == 0.0f) {
-			if (other.weight != 0.0f)
-				return false;
-		} else if (weight != (other.weight))
-			return false;
-		if (weight == 0.0f) {
-			if (other.weight != 0.0f)
-				return false;
-		} else if (weight != (other.weight))
-			return false;
-		return true;
-		
-		
-	}}
+}
 	
 

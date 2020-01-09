@@ -62,4 +62,14 @@
     <servlet-name>DishServlet</servlet-name>
     <url-pattern>/DishServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CocktailServlet</display-name>
+    <servlet-name>CocktailServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.CocktailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CocktailServlet</servlet-name>
+    <url-pattern>/CocktailServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

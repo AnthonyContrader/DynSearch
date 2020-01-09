@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.CarDTO"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.CocktailDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link href="./css/vittoriostyle.css" rel="stylesheet">
-<title>Read car</title>
+<title>Dish User</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
@@ -13,29 +13,29 @@
   	<a href="homeadmin.jsp">Home</a>
 	<a href="UserServlet?mode=userlist">Users</a>
 	<a href="IngredientServlet?mode=ingredientlist">Ingredients</a>
-	<a class="active" href="CarServlet?mode=carlist">Cars</a>
+	<a href="CarServlet?mode=carlist">Cars</a>
 	<a href="DishServlet?mode=dishlist">Dishes</a>
-	<a href="CocktailServlet?mode=cocktaillist">Cocktails</a>
+	<a class="active" href="CocktailServlet?mode=cocktaillist">Cocktails</a>
 	<a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
 <div class="main">
-<%CarDTO c = (CarDTO) request.getAttribute("dto");%>
+ <%CocktailDTO c = (CocktailDTO) request.getAttribute("dto");%>
 
 
 <table>
 	<tr> 
-		<th>brand</th>
-		<th>model</th>
-		<th>doors</th>
-		<th>engineCapacity</th>
+		<th>name</th>
+		<th>type</th>
+		<th>Alcohol</th>
+		<th>AVG</th>
 		
 	</tr>
 	<tr>
-		<td><%=c.getBrand()%></td>
-		<td> <%=c.getModel()%></td>
-		<td> <%=c.getDoors()%></td>
-		<td> <%=c.getEngineCapacity()%></td>
+		<td><%=c.getName()%></td>
+		<td><%=c.getType()%></td>
+		<td><%=c.getAlcohol()%></td>
+		<td><%=c.getAVG()%></td>
 	</tr>	
 </table>
 
@@ -60,4 +60,3 @@
 <%@ include file="../css/footer.jsp" %>
 </body>
 </html>
-

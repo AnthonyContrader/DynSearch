@@ -7,11 +7,26 @@ public class CocktailDTO {
 	private int AVG;
 	private int id;
 	private String alcohol;
-	
+
+	public CocktailDTO (int id, String name, String type, int isAlcohol, int AVG) {
+		this.setName(name);
+		this.setType(type);
+	    this.isAlcohol = (isAlcohol > 0);
+		this.setAVG(AVG);
+		this.alcohol = this.isAlcohol  ? "Alcohol" : "NO Alcohol";
+		this.setId(id);
+	}
+	public CocktailDTO (String name, String type, int isAlcohol, int AVG) {
+		this.setName(name);
+		this.setType(type);
+	    this.isAlcohol = (isAlcohol > 0);
+		this.setAVG(AVG);
+		this.alcohol = this.isAlcohol  ? "Alcohol" : "NO Alcohol";
+	}
+
 	public String getAlcohol() {
 		return alcohol;
 	}
-
 	public void setAlcohol(String alcohol) {
 		this.alcohol = alcohol;
 	}
@@ -19,28 +34,9 @@ public class CocktailDTO {
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public CocktailDTO (int id, String name, String type, boolean isAlcohol, int AVG) {
-		this.setName(name);
-		this.setType(type);
-		this.setIsAlcohol(isAlcohol);
-		this.setAVG(AVG);
-		this.setId(id);
-		this.alcohol = isAlcohol  ? "Alcohol" : "NO Alcohol";
-	}
-	
-	public CocktailDTO(String name, String type, boolean isAlcohol, int AVG) {
-		this.setName(name);
-		this.setType(type);
-		this.setIsAlcohol(isAlcohol);
-		this.setAVG(AVG);
-		this.alcohol = isAlcohol  ? "Alcohol" : "NO Alcohol";
-	}
-
 	public String getName() {
 		return name;
 	}

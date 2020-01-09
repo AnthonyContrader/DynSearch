@@ -64,8 +64,6 @@ public class IngredientDAO implements DAO<Ingredient>{
 	public Ingredient read(int ingredientId) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-
-
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setInt(1, ingredientId);
 			ResultSet resultSet = preparedStatement.executeQuery();

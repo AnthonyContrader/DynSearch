@@ -16,13 +16,20 @@ public class Cocktail {
 		this.id = id;
 	}
 
-	public Cocktail (int id, String name, String type, boolean isAlcohol, int AVG) {
+	public Cocktail (int id, String name, String type, int isAlcohol, int AVG) {
 		this.setName(name);
 		this.setType(type);
-		this.setIsAlcohol(isAlcohol);
+	    this.isAlcohol = (isAlcohol > 0);
 		this.setAVG(AVG);
+		this.alcohol = this.isAlcohol  ? "Alcohol" : "NO Alcohol";
 		this.setId(id);
-		this.alcohol = isAlcohol  ? "Alcohol" : "NO Alcohol";
+	}
+	public Cocktail(String name, String type, int isAlcohol, int AVG) {
+		this.setName(name);
+		this.setType(type);
+	    this.isAlcohol = (isAlcohol > 0);
+		this.setAVG(AVG);
+		this.alcohol = this.isAlcohol  ? "Alcohol" : "NO Alcohol";
 	}
 	
 	public String getAlcohol() {
@@ -31,14 +38,6 @@ public class Cocktail {
 
 	public void setAlcohol(String alcohol) {
 		this.alcohol = alcohol;
-	}
-
-	public Cocktail(String name, String type, boolean isAlcohol, int AVG) {
-		this.setName(name);
-		this.setType(type);
-		this.setIsAlcohol(isAlcohol);
-		this.setAVG(AVG);
-		this.alcohol = isAlcohol  ? "Alcohol" : "NO Alcohol";
 	}
 
 	public String getName() {

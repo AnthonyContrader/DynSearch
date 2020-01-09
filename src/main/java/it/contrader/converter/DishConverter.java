@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.DishDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.model.Dish;
-import it.contrader.model.User;
 
 
 public class DishConverter  implements Converter<Dish, DishDTO> {

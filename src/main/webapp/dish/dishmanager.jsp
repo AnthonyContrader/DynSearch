@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="../css/vittoriostyle.css" rel="stylesheet">
+<link href="./css/vittoriostyle.css" rel="stylesheet">
 <title> Dish Manager </title>
 </head>
 <body>
@@ -17,6 +17,7 @@
 	<a href="IngredientServlet?mode=ingredientlist">Ingredients</a>
 	<a href="CarServlet?mode=carlist">Cars</a>
 	<a class="active" href="DishServlet?mode=dishlist">Dishes</a>
+	<a href="CocktailServlet?mode=cocktaillist">Cocktails</a>
 	<a href="LogoutServlet" id="logout">Logout</a>
 </div>
 
@@ -67,7 +68,7 @@
 
 <br>
 </div>
-<br>
+
 <div>
 <form id="floatright" action="DishServlet?mode=insert" method="post">
   <div class="row">

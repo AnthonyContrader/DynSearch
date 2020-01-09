@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.CocktailDTO"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.CocktailDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link href="./css/vittoriostyle.css" rel="stylesheet">
-<title>Cocktail Manager</title>
+<title>Edit Cocktail</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
-
 <div class="navbar">
   	<a href="homeadmin.jsp">Home</a>
 	<a href="UserServlet?mode=userlist">Users</a>
@@ -20,46 +18,13 @@
 	<a class="active" href="CocktailServlet?mode=cocktaillist">Cocktails</a>
 	<a href="LogoutServlet" id="logout">Logout</a>
 </div>
-<div class="main">
-	<%
-	@SuppressWarnings("unchecked") List<CocktailDTO> list = (List<CocktailDTO>) request.getAttribute("list");
-	%>
-
 <br>
+<div class="main">
 
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Alcohol</th>
-			<th>AVG</th>
-			<th></th>
-			<th></th>
-		</tr>
-		<%
-			for (CocktailDTO c : list) {
-		%>
-		<tr>
-			<td><a href=CocktailServlet?mode=read&id=<%=c.getId()%>>
-					<%=c.getName()%>
-			</a></td>
-			<td><%=c.getType()%></td>
-			<td><%=c.getAlcohol()%></td>
-			<td><%=c.getAVG()%></td>
-			<td><a href=CocktailServlet?mode=read&update=true&id=<%=c.getId()%>>Edit</a>
-			</td>
-			<td><a href=CocktailServlet?mode=delete&id=<%=c.getId()%>>Delete</a>
-			</td>
-
-		</tr>
-		<%
-			}
-		%>
-	</table>
+<%CocktailDTO c = (CocktailDTO) request.getAttribute("dto");%>
 
 
-
-<form id="floatright" action="CocktailServlet?mode=insert" method="post">
+<form id="floatleft" action="CocktailServlet?mode=update&id=<%=c.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="category">Name</label>
@@ -94,11 +59,12 @@
       <input type="text" id="avg" name="avg" placeholder="Insert AVG "> 
     </div>
   </div>
-      <button type="submit" >Insert</button>
+      <button type="submit" >Update</button>
 </form>
 
+	
 </div>
 <br>
-<%@ include file="../css/footer.jsp" %>
+<%@ include file="../css/footer.jsp" %>	
 </body>
 </html>

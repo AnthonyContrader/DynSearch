@@ -324,4 +324,10 @@ div.navbar a.active {
 	z-index: -1; opacity : .9;
 	width: 8%;
 }
+
+.labelleft{
+	margin-left:40%;
+}
+.labelright{
+	margin-left:47%;
 }
