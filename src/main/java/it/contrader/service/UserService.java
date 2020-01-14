@@ -11,7 +11,8 @@ import it.contrader.model.User;
 
 @Service
 public class UserService extends AbstractService<User, UserDTO> {
-
+	
+	
 	@Autowired
 	private UserConverter converter;
 	@Autowired

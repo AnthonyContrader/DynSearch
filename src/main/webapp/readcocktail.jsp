@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="it.contrader.dto.UserDTO"%>
+	pageEncoding="ISO-8859-1" import="it.contrader.dto.CocktailDTO"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -14,30 +14,33 @@
 	<%@ include file="./css/header.jsp"%>
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> 
-		<a class="active" href="/user/getall">Users</a> 
-		<a class="active" href="/cocktail/getall">Cocktail</a>
+		<a class="active"href="/user/getall">Users</a>
+		<a class="active" href="/cocktail/getall">Cocktail</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<br>
 
 	<div class="main">
 		<%
-			UserDTO u = (UserDTO) request.getSession().getAttribute("dto");
+			CocktailDTO u = (CocktailDTO) request.getSession().getAttribute("dto");
 		%>
 
 
 		<table>
 			<tr>
-				<th>ID</th>
-				<th>Username</th>
+				<th>Name</th>
 				<th>Password</th>
-				<th>Usertype</th>
+				<th>Type</th>
+				<th>isAlcohol</th>
+				<th>AVG</th>
+				<th>alcohol</th>
 			</tr>
 			<tr>
 				<td><%=u.getId()%></td>
-				<td><%=u.getUsername()%></td>
-				<td><%=u.getPassword()%></td>
-				<td><%=u.getUsertype()%></td>
+				<td><%=u.getName()%></td>
+				<td><%=u.getType()%></td>
+				<td><%=u.isIsAlcohol()%></td>
+				<td><%=u.getAlcohol()%></td>
 			</tr>
 		</table>
 
