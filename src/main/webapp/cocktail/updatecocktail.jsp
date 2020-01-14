@@ -7,19 +7,21 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Cocktail Edit page">
-<meta name="author" content="Vittorio Valent">
+<meta name="author" content="Stefano Mazzeo">
 <link href="/css/vittoriostyle.css" rel="stylesheet">
-<title>Edit User</title>
+<title>Edit Cocktail</title>
 
 </head>
 <body>
-<%@ include file="./css/header.jsp" %>
+<%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a href="/homeadmin.jsp">Home</a>
-  <a class="active" href="/user/getall">Users</a>
-  <a class="active" href="/cocktail/getall">Cocktail</a>
-  <a href="/user/logout" id="logout">Logout</a>
-</div>
+		<a href="/homeadmin.jsp">Home</a> 
+		<a href="/user/getall">Users</a>
+		<a href="/ingredient/getall">Ingredients</a>
+		<a href="/dish/getall">Dishes</a>
+		<a class="active" href="/cocktail/getall">Cocktail</a>
+		<a href="/user/logout" id="logout">Logout</a>
+	</div>
 <br>
 <div class="main">
 
@@ -83,6 +85,6 @@
 	
 </div>
 <br>
-<%@ include file="./css/footer.jsp" %>	
+<%@ include file="../css/footer.jsp" %>	
 </body>
 </html>

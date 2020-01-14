@@ -256,6 +256,15 @@ button {
   width:80%;
 }
 
+button.btn-secondary {
+	color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    width: 10%;
+    height: 5%;
+     padding:auto;
+}
+
 button:hover {
   background-color:  #00ccad; 
   color: white;
@@ -323,5 +332,4 @@ div.navbar a.active {
 	opacity: .9;
 	z-index: -1; opacity : .9;
 	width: 8%;
-}
 }

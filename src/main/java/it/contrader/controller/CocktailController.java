@@ -14,7 +14,7 @@ import it.contrader.model.Cocktail.Cocktailtype;
 import it.contrader.service.CocktailService;
 
 @Controller
-@RequestMapping("/cocktail")
+@RequestMapping(value = "/cocktail")
 public class CocktailController {
 
 	@Autowired
@@ -26,20 +26,20 @@ public class CocktailController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "cocktail";
+		return "/cocktail/cocktail";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "cocktail";
+		return "/cocktail/coktail";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updatecocktail";
+		return "/cocktail/updatecocktail";
 	}
 
 	@PostMapping("/update")
@@ -62,7 +62,7 @@ public class CocktailController {
 		
 		service.update(dto);
 		setAll(request);
-		return "cocktail";
+		return "/cocktail/cocktail";
 
 	}
 
@@ -83,14 +83,14 @@ public class CocktailController {
 		dto.setAlcohol(alcohol);
 		service.insert(dto);
 		setAll(request);
-		return "cocktail";
+		return "/cocktail/cocktail";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, 
 			@RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readcocktail";
+		return "/cocktail/readcocktail";
 	}
 
 	@GetMapping("/logout")
