@@ -21,7 +21,7 @@ public class IngredientController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "/ingredient/ingredients";
+		return "ingredient/ingredients";
 	}
 	
 	private void setAll (HttpServletRequest request) {

@@ -17,9 +17,10 @@
 
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> 
-		<a  href="/user/getall">Users</a>
+		<a href="/user/getall">Users</a>
 		<a href="/ingredient/getall">Ingredients</a>
 		<a class="active" href="/dish/getall">Dishes</a>
+		<a href="/cocktail/getall">Cocktail</a>
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
