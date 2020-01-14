@@ -18,15 +18,15 @@ function addIngr() {
     let memssd=$(".input_ssd").last().val();
     if(mem <=5 ) {
         if (memssd !== "Seleziona SSD" && memssd !== ""){
-            $(".addIngr").html(" <select  class='input_ssd' id='memoria_ssd"  + $(".input_ssd").length +"' onfocusout=\"check_ingr()\">" +
+            $(".addIngr").html(" <select  class='input_ingr' id='ingr"  + $(".input_ingr").length +"' onfocusout=\"check_ingr()\">" +
 	            		"			<option>Seleziona SSD</option> <option class='dropdown-divider'></option> " +
 	            		"			<option>Prova</option> <option>Prova 1</option> " +
-            		"</select> <div class=\"addSsd\ mt-3\"></div>");
+            		"</select> <div class=\"addIngr\"></div>");
             $(".addIngr").first().removeClass("addIngr");
-            $(".input_ssd").css('border-color','#5385c1');
+            $(".input_ingr").css('border-color','#5385c1');
         }
         else{
-            $(".input_ssd").last().css('border-color','rgb(185, 74, 72)');
+            $(".input_ingr").last().css('border-color','rgb(185, 74, 72)');
         }
     }
 }

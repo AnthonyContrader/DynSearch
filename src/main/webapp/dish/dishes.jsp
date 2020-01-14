@@ -139,15 +139,23 @@
      <label for="fat">Ingredients</label>
     </div>
     <div class="col-75">
-      <select id="ingr" name="ingr0" >
-      	<%for (IngredientDTO i : listIng) {%>
+      <select data-placeholder='Search Field' id="ingr" name="ingr0" >
+      	<%
+      	int x =0;
+      	for (IngredientDTO i : listIng) {
+      		if(x<1){%>
+      	<optgroup label="Select Ingredient">
+      	<%} %>
 			<option><%=i.getName()%></option>
+			<%x++; %>
+		
 		<%}%>
+		</optgroup>
       </select>
       <div class="addIng"></div>
       <div >
-            <button onclick="addHhd()" type="button" id="floatleft" class =" btn-secondary  floatleft">+</button>
-            <button onclick ="rmvHhd()" type="button" id="floatright" class=" btn-secondary  floatright"> - </button>
+            <button onclick="addIngr()" type="button"  class =" btn-secondary  floatleft">+</button>
+            <button onclick ="rmvIngr()" type="button"  class="floatright btn-secondary  "> - </button>
       </div>
     </div>
   </div>
