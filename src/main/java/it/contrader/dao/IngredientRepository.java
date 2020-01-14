@@ -5,11 +5,8 @@ import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import it.contrader.model.User;
-
+import it.contrader.model.Ingredient;
 @Repository
 @Transactional
-public interface UserRepository extends CrudRepository<User, Long> {
-
-	User findByUsernameAndPassword(String username, String password);
+public interface IngredientRepository extends CrudRepository<Ingredient,Long> {
 }

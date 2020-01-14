@@ -14,8 +14,10 @@
 	<%@ include file="./css/header.jsp"%>
 
 	<div class="navbar">
-		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/user/getall">Users</a> <a href="/user/logout" id="logout">Logout</a>
+		<a href="/homeadmin.jsp">Home</a> 
+		<a class="active" href="./user/getall">Users</a>
+		<a  href="/ingredient/getall">Ingredients</a>
+		<a href="user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
