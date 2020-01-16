@@ -27,41 +27,69 @@ public class DishController {
 	@Autowired
 	AssoIngredientDishService serviceAsso;
 	@Autowired
-	IngredientService ingredientService;
+	IngredientService ingrService;
 	
-	private void setAllIng(HttpServletRequest request,@RequestParam("id") Long id) {
+	private void getAllIng(HttpServletRequest request) {
 		List<AssoIngredientDishDTO> assoListDTO = new ArrayList<AssoIngredientDishDTO>();
 		List<IngredientDTO> listIngredientsDTO = new ArrayList<IngredientDTO>();
-		assoListDTO=serviceAsso.findAllByIddish(id);
-		for(AssoIngredientDishDTO assoDTO : assoListDTO) {
-			listIngredientsDTO.add(assoDTO.getIngredient());
+		List<DishDTO> listDishDTO = new ArrayList<DishDTO>();
+		listDishDTO=service.getAll();
+		for(DishDTO dish : listDishDTO) {
+			assoListDTO=serviceAsso.findByDish(dish);
+			listIngredientsDTO = new ArrayList<IngredientDTO>();
+			for(AssoIngredientDishDTO assoDTO : assoListDTO) {
+				listIngredientsDTO.add(assoDTO.getIngredient());
+			}
+			request.getSession().setAttribute("listIngredients"+dish.getId(), listIngredientsDTO);
 		}
-		request.getSession().setAttribute("listIngredients", listIngredientsDTO);
+		
+	}
+	private void deleteAllIng(Long id) {
+		List<AssoIngredientDishDTO> assoListDTO = new ArrayList<AssoIngredientDishDTO>();
+		DishDTO dishDTO = new DishDTO();
+		dishDTO=service.read(id);
+		assoListDTO=serviceAsso.findByDish(dishDTO);
+		for(AssoIngredientDishDTO assoDTO : assoListDTO) {
+			serviceAsso.delete(assoDTO.getId());;
+		}
+		
 	}
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
-		request.getSession().setAttribute("listAllIngr", ingredientService.getAll());
+		request.getSession().setAttribute("listAllIngr", ingrService.getAll());
+		
 	}
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
+		getAllIng(request);
 		return "/dish/dishes";
 	}
 	@GetMapping("/read")
 	public String read (HttpServletRequest request,@RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		setAllIng(request, id);
+		getAllIng(request);
 		return "/dish/readdish";
 	}
 	@GetMapping("/preupdate")
 	public String preUpdate (HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
+		request.getSession().setAttribute("listAllIngr", ingrService.getAll());
 		return "/dish/updatedish";
 	}
 	@PostMapping("/update")
-	public String update (HttpServletRequest request,@RequestParam("idIngredients")Long[] idingredients,@RequestParam("id") Long id,@RequestParam("name") String name, @RequestParam("category") String category, 
-			@RequestParam("weight") float weight, @RequestParam("cal") float cal, @RequestParam("carb") float carb, @RequestParam("prot") float prot, @RequestParam("fat") float fat) {
+	public String update (HttpServletRequest request,
+							@RequestParam("idingr")Long[] idingr,
+							@RequestParam("id") Long id,
+							@RequestParam("name") String name, 
+							@RequestParam("category") String category, 
+							@RequestParam("weight") float weight, 
+							@RequestParam("cal") float cal, 
+							@RequestParam("carb") float carb, 
+							@RequestParam("prot") float prot, 
+							@RequestParam("fat") float fat){
 		DishDTO dto = new DishDTO();
+		AssoIngredientDishDTO assoDTO = new AssoIngredientDishDTO();
 		dto.setId(id);
 		dto.setName(name);
 		dto.setCategory(category);
@@ -71,30 +99,52 @@ public class DishController {
 		dto.setProt(prot);
 		dto.setProt(prot);
 		dto.setFat(fat);
-		service.update(dto);
+		dto=service.update(dto);
+		deleteAllIng(dto.getId());
+		for(Long x : idingr) {
+			assoDTO.setDish(dto);
+			assoDTO.setIngredient(ingrService.read(x));
+			serviceAsso.update(assoDTO);
+		}
+		getAllIng(request);
 		setAll(request);
 		return "dish/dishes";
 	}
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request ,@RequestParam("name") String name, @RequestParam("category") String category, 
-			@RequestParam("weight") float weight, @RequestParam("cal") float cal, @RequestParam("carb") float carb, @RequestParam("prot") float prot, @RequestParam("fat") float fat) {
+	public String insert(HttpServletRequest request ,
+							@RequestParam("idingr") Long[] idingr,
+							@RequestParam("name") String name, 
+							@RequestParam("category") String category, 
+							@RequestParam("weight") float weight, 
+							@RequestParam("cal") float cal, 
+							@RequestParam("carb") float carb, 
+							@RequestParam("prot") float prot, 
+							@RequestParam("fat") float fat) {
 		DishDTO dto = new DishDTO();
+		AssoIngredientDishDTO assoDTO = new AssoIngredientDishDTO();
 		dto.setName(name);
 		dto.setCategory(category);
 		dto.setCal(cal);
 		dto.setCarb(carb);
 		dto.setWeight(weight);
 		dto.setProt(prot);
-		dto.setProt(prot);
 		dto.setFat(fat);
-		
-		service.insert(dto);
+		dto=service.insert(dto);
+		for(Long x : idingr) {
+			assoDTO.setDish(dto);
+			assoDTO.setIngredient(ingrService.read(x));
+			serviceAsso.insert(assoDTO);
+		}
+		getAllIng(request);
 		setAll(request);
 		return "/dish/dishes";
 	}
 	@GetMapping("/delete")
 	public String delete (HttpServletRequest request, @RequestParam("id") Long id) {
+		DishDTO dish =service.read(id);
+		serviceAsso.deleteByDish(dish);
 		service.delete(id);
+		getAllIng(request);
 		setAll(request);
 		return "/dish/dishes";
 	}

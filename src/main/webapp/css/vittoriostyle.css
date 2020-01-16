@@ -333,3 +333,13 @@ div.navbar a.active {
 	z-index: -1; opacity : .9;
 	width: 8%;
 }
+.hide{
+	display: none;
+}
+.show{
+	display: block;
+	display: inline;
+}
+.formInsert{
+	float:right;
+}

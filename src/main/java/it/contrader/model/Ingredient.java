@@ -1,5 +1,7 @@
 package it.contrader.model;
 
+//import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,4 +31,8 @@ public class Ingredient {
 	private float carb;
 	private float prot;
 	private float fat;
+	/*
+	@OneToMany(mappedBy="ingredient")
+	private List<AssoIngredientDish> assoIngredientDish;
+	*/
 }
