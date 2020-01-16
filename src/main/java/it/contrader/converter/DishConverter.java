@@ -7,6 +7,7 @@ import it.contrader.model.Dish;
 
 @Component
 public class DishConverter extends AbstractConverter<Dish, DishDTO> {
+	
 	@Override
 	public DishDTO toDTO(Dish dish) {
 		DishDTO dishDTO = null;
@@ -22,5 +23,4 @@ public class DishConverter extends AbstractConverter<Dish, DishDTO> {
 		}
 			return dish;
 	}
-	
 }

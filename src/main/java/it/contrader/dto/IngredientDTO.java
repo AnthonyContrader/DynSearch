@@ -1,5 +1,7 @@
 package it.contrader.dto;
 
+//import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +18,5 @@ public class IngredientDTO {
 	private float carb;
 	private float prot;
 	private float fat;
+	//private List<AssoIngredientDishDTO> listAssoIngrDishDTO;
 }

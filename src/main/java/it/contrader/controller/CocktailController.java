@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.CocktailDTO;
-import it.contrader.model.Cocktail.Cocktailtype;
 import it.contrader.service.CocktailService;
 
 @Controller

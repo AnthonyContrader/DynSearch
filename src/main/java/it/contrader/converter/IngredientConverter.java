@@ -1,5 +1,6 @@
 package it.contrader.converter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.IngredientDTO;
@@ -7,7 +8,9 @@ import it.contrader.model.Ingredient;
 
 @Component
 public class IngredientConverter extends AbstractConverter<Ingredient, IngredientDTO>{
-	DishConverter converter = new DishConverter();
+	@Autowired
+	AssoIngredientDishConverter converter;
+	
 	@Override
 	public Ingredient toEntity (IngredientDTO ingredientDTO) {
 		Ingredient ingredient = null;
