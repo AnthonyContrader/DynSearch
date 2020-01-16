@@ -20,6 +20,8 @@
 		<a href="/ingredient/getall">Ingredients</a>
 		<a href="/dish/getall">Dishes</a>
 		<a class="active" href="/cocktail/getall">Cocktail</a>
+		<a href="/car/getall">Cars</a>
+		<a href="/engine/getall">Engines</a>
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 <br>
