@@ -25,6 +25,7 @@ public class UserController {
 			@RequestParam(value = "password", required = true) String password) {
 
 		UserDTO userDTO = service.findByUsernameAndPassword(username, password);
+		
 		request.getSession().setAttribute("user", userDTO);
 
 		switch (userDTO.getUsertype()) {

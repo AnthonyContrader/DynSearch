@@ -9,76 +9,68 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.contrader.dto.CarDTO;
+import it.contrader.dto.EngineDTO;
 //import it.contrader.model.User.Usertype;
-import it.contrader.service.CarService;
 import it.contrader.service.EngineService;
 
 @Controller
-@RequestMapping("/car")
-public class CarController {
+@RequestMapping("/engine")
+public class EngineController {
 
 	@Autowired
-	private CarService service;
-	@Autowired
-	private EngineService serviceEng;
+	private EngineService service;
 
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "/car/cars";
+		return "/engine/engines";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "/car/cars";
+		return "/engine/engines";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		request.getSession().setAttribute("listEng", serviceEng.getAll());
-		return "/car/updatecar";
+		return "/engine/updatengine";
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("brand") String brand,
-			@RequestParam("model") String model, @RequestParam("doors") int doors, @RequestParam("idEngine") Long idEngine) {
+	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
+			@RequestParam("horsepower") int horsepower, @RequestParam("capacity") float capacity) {
 
-		CarDTO dto = new CarDTO();
+		EngineDTO dto = new EngineDTO();
 		dto.setId(id);
-		dto.setBrand(brand);
-		dto.setModel(model);
-		dto.setDoors(doors);
-		dto.setEngine(serviceEng.read(idEngine));
-		
+		dto.setName(name);
+		dto.setHorsepower(horsepower);
+		dto.setCapacity(capacity);
 		service.update(dto);
 		setAll(request);
-		return "/car/cars";
+		return "/engine/engines";
 
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request,  @RequestParam("brand") String brand,
-			@RequestParam("model") String model, @RequestParam("doors") int doors, @RequestParam("idEngine") Long idEngine) {
-		
-		CarDTO dto = new CarDTO();
-		dto.setBrand(brand);
-		dto.setModel(model);
-		dto.setDoors(doors);
-		dto.setEngine(serviceEng.read(idEngine));
+	public String insert(HttpServletRequest request,  @RequestParam("name") String name,
+			@RequestParam("horsepower") int horsepower, @RequestParam("capacity") float capacity) {
+		EngineDTO dto = new EngineDTO();
+		dto.setName(name);
+		dto.setHorsepower(horsepower);
+		dto.setCapacity(capacity);
 		service.insert(dto);
 		setAll(request);
-		return "/car/cars";
+		return "/engine/engines";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-	   return "/car/readcar";
+		return "/engine/readengine";
 	}
 
 //	@GetMapping("/logout")
@@ -89,6 +81,5 @@ public class CarController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
-		request.getSession().setAttribute("listEng", serviceEng.getAll());
 	}
 }

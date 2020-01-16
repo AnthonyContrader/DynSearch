@@ -20,7 +20,9 @@ public class CarDTO {
 	
 	private int doors;
 	
-	private float engineCapacity;
+	private EngineDTO engine;
+	//cambio qui
+	//private float engineCapacity;
 
 	//private Usertype usertype;
 

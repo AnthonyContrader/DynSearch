@@ -1,14 +1,17 @@
 package it.contrader.converter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.CarDTO;
-
 import it.contrader.model.Car;
-
 @Component
-public class CarConverter extends AbstractConverter<Car, CarDTO> {
 
+
+public class CarConverter extends AbstractConverter<Car, CarDTO> {
+	@Autowired
+	private EngineConverter converter;
+	
 	@Override
 	public Car toEntity(CarDTO carDTO) {
 		Car car = null;
@@ -18,7 +21,8 @@ public class CarConverter extends AbstractConverter<Car, CarDTO> {
 						carDTO.getBrand(),
 						carDTO.getModel(),
 						carDTO.getDoors(),
-						carDTO.getEngineCapacity());
+						converter.toEntity(carDTO.getEngine()));
+						//carDTO.getIdEngine());
 		
 		}
 		return car;
@@ -32,10 +36,13 @@ public class CarConverter extends AbstractConverter<Car, CarDTO> {
 					car.getBrand(),
 					car.getModel(),
 					car.getDoors(), 
-				car.getEngineCapacity());
+					converter.toDTO(car.getEngine()));
+					
+					
 
 
 		}
 		return carDTO;
 	}
+	
 }
