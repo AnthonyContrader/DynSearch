@@ -194,6 +194,84 @@
       		<%=this.getAllIngr(listIng)%>
       	</optgroup>
       </select>
+      <select id="input_ingr7" class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr8" class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr9"  class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr10"  class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr11"  class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr12"  class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr13" class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr14" class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr15" class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr16"  class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr17"  class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr18"  class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
+      <select id="input_ingr19"  class="ingr hide" >
+      <option value="" disabled selected class="hide">Select Ingredient</option>
+      	<optgroup label="Select Ingredient">
+      		<%=this.getAllIngr(listIng)%>
+      	</optgroup>
+      </select>
       <p id="demo" ></p>
       <div >
             <button onClick="addIngr()" type="button"  class ="add-btn btn-secondary  floatleft ">+</button>

@@ -30,7 +30,7 @@ function addIngr() {
     let ingr=$(".input_ingr").length;
     
     let ingrlast=$(".input_ingr").last().val();
-    if(ingr==7 && ingrlast !== null){
+    if(ingr==20 && ingrlast !== null){
     	$(".add-btn").addClass("hide" );
     }else{
     	$(".add-btn").removeClass("hide" );

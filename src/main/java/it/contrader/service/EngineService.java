@@ -25,5 +25,4 @@ public class EngineService extends AbstractService<Engine, EngineDTO> {
 //	public UserDTO findByUsernameAndPassword(String username, String password) {
 //		return converter.toDTO(repository.findByUsernameAndPassword(username, password));
 //	}
-
 }
