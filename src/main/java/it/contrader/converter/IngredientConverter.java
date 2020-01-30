@@ -12,7 +12,7 @@ public class IngredientConverter extends AbstractConverter<Ingredient,Ingredient
 	public Ingredient toEntity(IngredientDTO ingDTO) {
 		Ingredient ing = null;
 		if(ingDTO!=null) {
-			ing = new Ingredient(ingDTO.getId(),ingDTO.getName()); 
+			ing = new Ingredient(ingDTO.getId(),ingDTO.getName(),ingDTO.getUrlImg()); 
 		}
 		return ing;
 	}
@@ -21,7 +21,7 @@ public class IngredientConverter extends AbstractConverter<Ingredient,Ingredient
 	public IngredientDTO toDTO(Ingredient ing) {
 		IngredientDTO ingDTO = null;
 		if (ing!=null) {
-			ingDTO = new IngredientDTO(ing.getId(),ing.getName());
+			ingDTO = new IngredientDTO(ing.getId(),ing.getName(),ing.getUrlImg());
 		}
 		return ingDTO;
 	}
