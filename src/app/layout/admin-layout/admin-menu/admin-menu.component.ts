@@ -10,6 +10,7 @@ export class AdminMenuComponent implements OnInit {
 
   isDishesCollapsed = false;
   isUserCollapsed = false;
+  isCocktailCollapsed = false;
   isClientCollapsed = false;
   isAccountCollapsed = false;
   isDessertCollapsed=false;
@@ -39,6 +40,12 @@ export class AdminMenuComponent implements OnInit {
     if (this.isUserCollapsed === false) {
       this.isUserCollapsed = true;
     } else { this.isUserCollapsed = false; }
+  }
+
+  cocktailscollapse() {
+    if (this.isCocktailCollapsed === false) {
+      this.isCocktailCollapsed = true;
+    } else { this.isCocktailCollapsed = false; }
   }
 
   accountcollapse() {

@@ -42,6 +42,18 @@
                 </button>
             </div>
             <!--fino qui-->
+
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#cocktails"
+                (click)="cocktailscollapse()">
+                <i class="fas fa-cocktail" style="margin-right: 15px"></i>Cocktails
+            </button>
+            <div class="collapsebtn" id="users" *ngIf="isCocktailCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                    <a [routerLink]="['/admin-dashboard/cocktails']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Coctails </a>
+                </button>
+            </div>
+
             <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#dishes"
                 (click)="dishescollapse()">
                 <i class="fas fa-pizza-slice" style="margin-right: 15px"></i>Dishes
