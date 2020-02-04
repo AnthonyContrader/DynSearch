@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
 })
 export class AdminMenuComponent implements OnInit {
 
+  isDishesCollapsed = false;
   isUserCollapsed = false;
   isClientCollapsed = false;
   isAccountCollapsed = false;
   isDessertCollapsed=false;
+  isIngredientsCollapsed = false;
 
   constructor(private router: Router) {
   }
@@ -23,7 +25,16 @@ export class AdminMenuComponent implements OnInit {
     localStorage.clear();
     this.router.navigateByUrl('');
   }
-
+  dishescollapse() {
+    if (this.isDishesCollapsed === false) {
+      this.isDishesCollapsed = true;
+    } else { this.isDishesCollapsed = false; }
+  }
+  ingredientscollapse() {
+    if (this.isIngredientsCollapsed === false) {
+      this.isIngredientsCollapsed = true;
+    } else { this.isIngredientsCollapsed = false; }
+  }
   userscollapse() {
     if (this.isUserCollapsed === false) {
       this.isUserCollapsed = true;

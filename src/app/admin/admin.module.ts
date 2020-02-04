@@ -6,6 +6,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UsersComponent } from './users/users.component';
 import { DessertsComponent } from '../desserts/desserts.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
+import { DishesComponent } from './dishes/dishes.component';
+import { IngredientsComponent } from './ingredients/ingredients.component';
 
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
@@ -16,7 +18,7 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [AdminDashboardComponent, UsersComponent, DessertsComponent, WorkInProgressComponent],
+  declarations: [AdminDashboardComponent, UsersComponent,DessertsComponent, WorkInProgressComponent, DishesComponent, IngredientsComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
