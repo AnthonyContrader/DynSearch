@@ -1,0 +1,142 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Recipe
+            </th>
+            <th>
+                Servings
+            </th>
+            <th>
+                Cooking Time
+            </th>
+            <th>
+                Vegetarian
+            </th>
+            <th>
+                Calories
+            </th>
+            <th>
+                Carbohydrates
+            </th>
+            <th>
+                Protein
+            </th>
+            <th>
+                Fat
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Dish
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="Name" [(ngModel)]="dishtoinsert.name">
+            </td>
+            <td>
+              <input placeholder="Recipe" [(ngModel)]="dishtoinsert.descri">
+            </td>
+            <td>
+              <input placeholder="Servings" [(ngModel)]="dishtoinsert.servings">
+            </td>
+            <td>
+                <input placeholder = "Cooking Time" [(ngModel)]="dishtoinsert.minutes">
+            </td>
+            <td>
+                <select placeholder="Vegetarian" [(ngModel)]="dishtoinsert.vegetarian">
+                    <option value="false">No Vegetarian</option>
+                    <option value="true">Vegetarian</option>
+                  </select>
+            </td>
+            <td>
+                <input placeholder="Calories" [(ngModel)]="dishtoinsert.cal">
+            </td>
+            <td>
+                <input placeholder="Carbohydrates" [(ngModel)]="dishtoinsert.carb">
+            </td>
+            <td>
+                <input placeholder="Protein" [(ngModel)]="dishtoinsert.prot">
+            </td>
+            <td>
+                <input placeholder="Fat" [(ngModel)]="dishtoinsert.fat">
+            </td>
+            <td>
+                <input placeholder="Weight" [(ngModel)]="dishtoinsert.weight">
+            </td>
+            <td>
+                <input placeholder="Image" [(ngModel)]="dishtoinsert.urlImg">
+            </td>
+            <td>
+              <button (click)="insert(dishtoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let dish of dishes">
+            <td>
+                <input [(ngModel)]="dish.name">
+              </td>
+              <td>
+                <input [(ngModel)]="dish.descri">
+              </td>
+              <td>
+                <input [(ngModel)]="dish.servings">
+              </td>
+              <td>
+                  <input [(ngModel)]="dish.minutes">
+              </td>
+              <td>
+                  <select [(ngModel)]="dish.vegetarian">
+                    <option [selected]="dish.vegetarian===false" value="false">No Vegetarian</option>
+                    <option [selected]="dish.vegetarian===true" value="true">Vegetarian</option>
+                   </select>
+              </td>
+              <td>
+                  <input [(ngModel)]="dish.cal">
+              </td>
+              <td>
+                  <input [(ngModel)]="dish.carb">
+              </td>
+              <td>
+                  <input [(ngModel)]="dish.prot">
+              </td>
+              <td>
+                  <input [(ngModel)]="dish.fat">
+              </td>
+              <td>
+                  <input [(ngModel)]="dish.weight">
+              </td>
+              <td>
+                <img [src]="dish.urlImg"  height="70" width="70">
+              </td>
+            <td>
+              <button (click)=update(dish)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(dish)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>
