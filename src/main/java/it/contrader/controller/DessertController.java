@@ -2,7 +2,10 @@ package it.contrader.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONArray;
@@ -17,10 +20,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.converter.DessertConverter;
+import it.contrader.dto.DessIngrDTO;
 import it.contrader.dto.DessertDTO;
+import it.contrader.dto.IngredientDTO;
 import it.contrader.model.Dessert;
+import it.contrader.service.DessIngrService;
 import it.contrader.service.DessertApi;
 import it.contrader.service.DessertService;
+import it.contrader.service.IngredientService;
 
 
 /**
@@ -46,9 +53,18 @@ public class DessertController extends AbstractController<DessertDTO>{
 	private DessertApi dessertApi;
 	@Autowired
 	private DessertConverter dessertconverter;
+	@Autowired
+	DessIngrService diservice;
+	@Autowired
+	IngredientService ingrService;
 	
-    @GetMapping("/dess")
-    public DessertDTO Dessert(Dessert dessert) throws ClientProtocolException, IOException, Exception {
+	
+	// da qui API
+    @GetMapping("/dessert")
+	
+     public DessertDTO Dessert(Dessert dessert) throws ClientProtocolException, IOException, Exception {
+
+    	
     	DessertApi mc = new DessertApi();
     	String name = mc.getName();
     	
@@ -58,15 +74,9 @@ public class DessertController extends AbstractController<DessertDTO>{
             
               
              JSONObject jsonObj = new JSONObject(results);
-
-   
-
-            
-         	//System.out.println("Name "+jsonObj.get("title"));
-         	//System.out.println("recipe "+jsonObj.get("instructions"));
-         	//System.out.println("Servings "+jsonObj.get("servings"));
-         	//System.out.println("Minutes "+jsonObj.get("readyInMinutes"));
-           // System.out.println("Image "+jsonObj.get("image"));
+ 
+         
+         	
          	String s= new String(jsonObj.get("nutrition").toString());
 
         	
@@ -98,19 +108,29 @@ public class DessertController extends AbstractController<DessertDTO>{
         		else if(jnut.get("title").toString().equals("Protein")) {
        			 pro=Float.parseFloat(jnut.get("amount").toString());
        			 
-//        		if(jnut.get("title").toString().equals("Calories")||jnut.get("title").toString().equals("Fat")||
-//        				jnut.get("title").toString().equals("Protein")||jnut.get("title").toString().equals("Carbohydrates")) {
-//        		System.out.println(jnut.get("title"));
-//          	System.out.println("amount "+jnut.get("amount")+jnut.get("unit"));
-        	                      	
+       	                      	
         	        	}
         }
-        	
+        	//da qui prende gli ingredienti
+        	JSONArray ingr = new JSONArray(jsonObj.get("extendedIngredients").toString());
+       	 System.out.println(ingr);
+       	List<String> ingredient = new LinkedList<String>();
+    	List<String> extIngr = new LinkedList<String>();
+       	 int lengthI = ingr.length();
+       	 
+       	       for (int i=0; i<lengthI; i++) {
+           		JSONObject jingr = ingr.getJSONObject(i);
+           		//System.out.println(jingr.get("originalName"));
+               //	System.out.println(""+jingr.get("amount")+jingr.get("unit"));
+               	ingredient.add(jingr.get("originalName").toString());
+               	extIngr.add(jingr.get("originalName").toString()+" "+jingr.get("amount").toString()+jingr.get("unit").toString());
+       	 }
+       	 //a qui
         	 dessert  = new Dessert(Long.parseLong(jsonObj.get("id").toString()),jsonObj.get("title").toString(),jsonObj.get("instructions").toString(),
         		Integer.parseInt(jsonObj.get("servings").toString()),Integer.parseInt(jsonObj.get("readyInMinutes").toString()),
         		Float.parseFloat(jsonObj3.get("amount").toString()),cal,carb,pro,fat,jsonObj.get("image").toString());  
-        System.out.println(dessert);
-        
+        System.out.println(ingredient);
+        System.out.println(extIngr);
        
         dessertService.insert(dessertconverter.toDTO(dessert));
         
