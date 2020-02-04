@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Image
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            User
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="Name" [(ngModel)]="ingrediettoinsert.name">
+          </td>
+          <td>
+            <input placeholder="Image" [(ngModel)]="ingrediettoinsert.urlImg">
+          </td>
+          <td>
+            <button (click)="insert(ingrediettoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let ingredient of ingredients">
+          <td>
+            <input [(ngModel)]="ingredient.name">
+          </td>
+          <td>
+            <img [src]="ingredient.urlImg"  height="70" width="70">
+          </td>
+          <td>
+            <button (click)=update(ingredient)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(ingredient)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

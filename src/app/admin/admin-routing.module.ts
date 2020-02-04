@@ -4,6 +4,8 @@ import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.compon
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { CocktailsComponent } from './cocktails/cocktails.component';
+import { DishesComponent } from './dishes/dishes.component';
+import { IngredientsComponent } from './ingredients/ingredients.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 /**
@@ -23,6 +25,8 @@ const routes: Routes = [
     { path: '', component: AdminDashboardComponent},
     { path: 'cocktails', component: CocktailsComponent},
     { path: 'users', component: UsersComponent},
+    { path: 'dishes', component: DishesComponent},
+    { path: 'ingredients', component: IngredientsComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}
 ];
