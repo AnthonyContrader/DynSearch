@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
+import { CocktailsComponent } from './cocktails/cocktails.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 /**
@@ -11,7 +12,7 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
  * <router-outlet> del layout (come percorsi "children") vengono visualizzati gli altri 
  * (qui sotto sono indentati).
  * 
- * @author Vittorio Valent
+ * @author Stefano Mazzeo
  * 
  * @see AdminLayoutComponent
  * 
@@ -20,6 +21,7 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
 const routes: Routes = [
   { path: 'admin-dashboard', component: AdminLayoutComponent, children:[
     { path: '', component: AdminDashboardComponent},
+    { path: 'cocktails', component: CocktailsComponent},
     { path: 'users', component: UsersComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}

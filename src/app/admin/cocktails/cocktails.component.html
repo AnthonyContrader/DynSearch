@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            IsAlcohol
+          </th>
+          <th>
+            AVG
+          </th>
+          <th>
+            Alcohol
+          </th>
+          <th>
+              Edit
+          </th>
+          
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="name" [(ngModel)]="cocktailtoinsert.name">
+          </td>
+          <td>
+            <input placeholder="type" [(ngModel)]="cocktailtoinsert.type">
+          </td>
+          <td>
+            <select placeholder="isAlcohol" [(ngModel)]="cocktailtoinsert.isAlcohol">
+              <option value="0">no</option>
+              <option value="1">si</option>
+            </select>
+
+            <td>
+            
+              <input placeholder="avg" [(ngModel)]="cocktailtoinsert.avg">
+            </td>
+<!---
+            <td>
+            
+              <input placeholder="alcohol" [(ngModel)]="cocktailtoinsert.alcohol">
+            </td>
+          -->
+
+          <td>
+            <button (click)="insert(cocktailtoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let cocktail of cocktails">
+          <td>
+            <input [(ngModel)]="cocktail.name">
+          </td>
+          <td>
+            <input [(ngModel)]="cocktail.type">
+          </td>
+          
+            <td>
+              <input [(ngModel)]="cocktail.isAlcohol">
+            </td>
+          
+          <td>
+            <input [(ngModel)]="cocktail.avg">
+          </td>
+<!--
+          <td>
+            <input [(ngModel)]="cocktail.alcohol">
+          </td>
+-->
+
+          <td>
+            <button (click)="update(cocktail)">Save</button>
+          </td>
+          <td>
+            <button (click)="delete(cocktail)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
