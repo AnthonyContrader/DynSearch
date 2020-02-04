@@ -1,0 +1,133 @@
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-12">
+    </div>
+
+    <div class="table-responsive">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+           Recipe
+          </th>
+          <th>
+            Servings
+          </th>
+          <th>
+            Minutes
+          </th>
+          <th>
+            Weight
+          </th>
+          <th>
+           Calories
+          </th>
+          <th>
+            Carb
+          </th>
+          <th>
+            Pro
+          </th>
+          <th>
+            Fat
+          </th>
+          <th>
+            Image
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Dessert
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="name" [(ngModel)]="desserttoinsert.name">
+          </td>
+          <td>
+            <input placeholder="recipe" [(ngModel)]="desserttoinsert.recipe">
+          </td>
+          <td>
+            <input placeholder="servings" [(ngModel)]="desserttoinsert.servings">
+          </td>
+          <td>
+            <input placeholder="minutes" [(ngModel)]="desserttoinsert.minutes">
+          </td>
+          <td>
+            <input placeholder="weight" [(ngModel)]="desserttoinsert.weight">
+          </td>
+          <td>
+            <input placeholder="calories" [(ngModel)]="desserttoinsert.calories">
+          </td>
+          <td>
+            <input placeholder="carb" [(ngModel)]="desserttoinsert.carb">
+          </td>
+          <td>
+            <input placeholder="pro" [(ngModel)]="desserttoinsert.pro">
+          </td>
+          <td>
+            <input placeholder="fat" [(ngModel)]="desserttoinsert.fat">
+          </td>
+          <td>
+            <input placeholder="image" [(ngModel)]="desserttoinsert.image">
+          </td>
+          
+          <td>
+            <button (click)="insert(desserttoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let dessert of desserts">
+          <td>
+            <input [(ngModel)]="dessert.name">
+          </td>
+          <td>
+            <input [(ngModel)]="dessert.recipe">
+          </td>
+          <td>
+            <input [(ngModel)]="dessert.servings">
+          </td>
+          <td>
+            <input [(ngModel)]="dessert.minutes">
+          </td>
+          <td>
+            <input [(ngModel)]="dessert.weight">
+          </td>
+          <td>
+            <input [(ngModel)]="dessert.calories">
+          </td>
+          <td>
+            <input [(ngModel)]="dessert.carb">
+          </td>
+          <td>
+            <input [(ngModel)]="dessert.pro">
+          </td>
+          <td>
+            <input [(ngModel)]="dessert.fat">
+          </td>
+          <td>
+            <img [src]="dessert.image" height="60" width="60">
+          </td>
+          
+          <td>
+            <button (click)=update(dessert)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(dessert)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+
+
+  </div>
+
+</div>
