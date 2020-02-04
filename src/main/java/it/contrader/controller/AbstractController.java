@@ -19,7 +19,6 @@ import it.contrader.service.ServiceDTO;
  *
  *@param <DTO>
  *
-
  * 
  * @see ServiceDTO<DTO>
  */
