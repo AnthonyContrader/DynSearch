@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "assoDishIng",
+            "otherEntityName": "assoDishIng",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "idingredient"
+        },
+        {
+            "relationshipName": "assoCocktailIng",
+            "otherEntityName": "assoCocktailIng",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "idingredient"
+        },
+        {
+            "relationshipName": "assoDessertIng",
+            "otherEntityName": "assoDessertIng",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "idingredient"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "urlImg",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20200205110703",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "ingredient",
+    "jpaMetamodelFiltering": true,
+    "pagination": "infinite-scroll",
+    "microserviceName": "ingredient"
+}
