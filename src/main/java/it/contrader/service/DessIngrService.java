@@ -1,4 +1,4 @@
-package it.contrader.service;
+ package it.contrader.service;
 
 import java.util.List;
 
@@ -15,15 +15,9 @@ import it.contrader.dto.DessertDTO;
 
 import it.contrader.model.DessIngr;
 
-/**
- * Estende AbstractService con parametri car e carDTO. 
-  
- * 
- * @author Vittorio Valent & Girolamo Murdaca
- * 
- * @see AbstractService
- * @see ServiceDTO
- */
+
+// Estende AbstractService con parametri car e carDTO. 
+
 @Service
 public class DessIngrService extends AbstractService<DessIngr,DessIngrDTO> {
 	

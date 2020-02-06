@@ -1,3 +1,4 @@
+
 package it.contrader.dao;
 
 import java.util.List;
@@ -12,14 +13,7 @@ import it.contrader.model.Dessert;
 ;
 
 
-/**
- * Estende CrudRepository ed eredita tutti i metodi di CRUD. 
- * Definisce il metodo di login.
- * 
- *
- * @see CrudRepository
- *
- */
+
 @Repository
 @Transactional
 public interface DessIngrRepository extends CrudRepository<DessIngr, Long>{

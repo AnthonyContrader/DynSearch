@@ -61,7 +61,7 @@ public class DessertController extends AbstractController<DessertDTO>{
 	
 	// da qui API
     @GetMapping("/dessert")
-	
+  //  @GetMapping(value="/search")
      public DessertDTO Dessert(Dessert dessert) throws ClientProtocolException, IOException, Exception {
 
     	
@@ -113,7 +113,7 @@ public class DessertController extends AbstractController<DessertDTO>{
         }
         	//da qui prende gli ingredienti
         	JSONArray ingr = new JSONArray(jsonObj.get("extendedIngredients").toString());
-       	 System.out.println(ingr);
+       	 //System.out.println(ingr);
        	List<String> ingredient = new LinkedList<String>();
     	List<String> extIngr = new LinkedList<String>();
        	 int lengthI = ingr.length();
@@ -126,16 +126,23 @@ public class DessertController extends AbstractController<DessertDTO>{
                	extIngr.add(jingr.get("originalName").toString()+" "+jingr.get("amount").toString()+jingr.get("unit").toString());
        	 }
        	 //a qui
+       	    if (dessertService.findByName(jsonObj.get("title").toString()) == null) {
         	 dessert  = new Dessert(Long.parseLong(jsonObj.get("id").toString()),jsonObj.get("title").toString(),jsonObj.get("instructions").toString(),
         		Integer.parseInt(jsonObj.get("servings").toString()),Integer.parseInt(jsonObj.get("readyInMinutes").toString()),
         		Float.parseFloat(jsonObj3.get("amount").toString()),cal,carb,pro,fat,jsonObj.get("image").toString());  
-        System.out.println(ingredient);
-        System.out.println(extIngr);
+       // System.out.println(ingredient);
+      //  System.out.println(extIngr);
        
         dessertService.insert(dessertconverter.toDTO(dessert));
         
-        System.out.println( dessertconverter.toDTO(dessert));
-        
+       // System.out.println( dessertconverter.toDTO(dessert));
+        }
+       //
+       	    else {
+ 			System.out.println("in databese");
+ 		
+ 		}
+        //
     		}else {
     			System.out.println("in databese");
     		

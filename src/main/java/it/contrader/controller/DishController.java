@@ -22,10 +22,10 @@ public class DishController extends AbstractController<DishDTO> {
 	private DishApiService dishApiService;
 	@Autowired
 	private DishService dishService;
-	
-	
+		
 	
 	@GetMapping(value = "/search")
+	
 	public List<DishDTO> getDishAPI( @RequestParam("name") String name ) {
 		List<DishDTO> dishes;
 		if (dishService.findAllByName(name).isEmpty()){

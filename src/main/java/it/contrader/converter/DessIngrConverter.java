@@ -1,3 +1,4 @@
+
 package it.contrader.converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +8,6 @@ import it.contrader.dto.DessIngrDTO;
 
 import it.contrader.model.DessIngr;
 
-/**
- * 
- *  
-
- * 
- *@see AbstractConverter
- *@see Converter
- */
 @Component
 public class DessIngrConverter extends AbstractConverter<DessIngr,DessIngrDTO> {
 
